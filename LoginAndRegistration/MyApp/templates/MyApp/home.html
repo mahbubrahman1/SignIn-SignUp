@@ -1,0 +1,21 @@
+{% extends 'MyApp/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-around my-3">
+        <div class="col-sm-8">
+            <h2 class="text-center">Welcome to BenTech.</h2>
+        </div>
+    </div>
+
+    {% comment %} user informations {% endcomment %}
+    <div class="mt-4">
+        {% if user.is_authenticated %}
+            <h4>Hi, {{ user_information.first_name }}
+            <h4>Your email address is {{ user_information.email }}</h4>
+        {% else %}
+            <div class="alert alert-warning text-center">You are not login. Please login or signup first then login.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
